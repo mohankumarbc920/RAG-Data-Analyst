@@ -1,5 +1,13 @@
 # RAG Q&A Assistant
 
+![RAG](https://img.shields.io/badge/RAG-Retrieval--Augmented%20Generation-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110-green)
+![FAISS](https://img.shields.io/badge/FAISS-Vector%20Search-orange)
+![LangChain](https://img.shields.io/badge/LangChain-0.2-purple)
+![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-red)
+![Python](https://img.shields.io/badge/Python-3.11-yellow)
+![Docker](https://img.shields.io/badge/Docker-Containerized-lightblue)
+
 A document question-answering system that lets you upload PDFs and ask questions about them. It only answers from your documents — no made-up facts.
 
 Supports two modes:
