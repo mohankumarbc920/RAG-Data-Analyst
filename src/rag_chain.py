@@ -62,7 +62,7 @@ PROMPTS = {
 
 def get_llm() -> ChatGoogleGenerativeAI:
     return ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         temperature=0,            # deterministic — reduces hallucinations
         google_api_key=os.getenv("GOOGLE_API_KEY"),
     )

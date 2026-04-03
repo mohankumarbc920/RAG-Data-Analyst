@@ -10,6 +10,7 @@ Endpoints:
 import os
 import shutil
 import time
+import traceback
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
@@ -121,8 +122,10 @@ async def ask_question(
         raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
     t0 = time.perf_counter()
-    retriever = get_retriever(FAISS_DIR, top_k=top_k)
-    result = ask(retriever, query, domain=domain)
-    result["latency_seconds"] = round(time.perf_counter() - t0, 3)
-
-    return JSONResponse(content=result)
+    try:
+        retriever = get_retriever(FAISS_DIR, top_k=top_k)
+        result = ask(retriever, query, domain=domain)
+        result["latency_seconds"] = round(time.perf_counter() - t0, 3)
+        return JSONResponse(content=result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {str(e)}\n{traceback.format_exc()}")

@@ -45,4 +45,4 @@ Question: {question}
 Answer:"""
 
 response = llm.invoke(prompt)
-print(f"\n✅ Final Answer: {response.content}")
+print(f"\n Final Answer: {response.content}")
